@@ -4,6 +4,7 @@ import { ThemeProvider } from 'next-themes'// переключение межд�
 import Link from 'next/link'
 import ThemeToggle from '@/components/theme-toggle'
 import Nav from '@/components/nav'
+import Footer from '@/components/Footer'
 
 const fontInter = Inter({subsets: ['latin', 'cyrillic']})// подключаем шрифт Inter из Google Fonts с поддержкой латиницы и кириллицы
 
@@ -17,6 +18,7 @@ type ChildrenType = {
 }
 
 const RootLayout = ({children}: ChildrenType) => {
+
   return (
     <html lang='ru' suppressContentEditableWarning>
       <body className={fontInter.className}>
@@ -30,9 +32,7 @@ const RootLayout = ({children}: ChildrenType) => {
               </div>
             </header>
             <main className='container mx-auto flex-1 py-6'>{children}</main>
-            <footer className='border-t py-3 text-center text-sm text-muted-foreground'>
-              © {new Date().getFullYear()} HH Viewer
-            </footer>
+            <Footer/>
           </div>
         </ThemeProvider>
       </body>

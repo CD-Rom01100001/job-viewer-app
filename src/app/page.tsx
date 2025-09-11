@@ -1,3 +1,5 @@
+import { Button } from "@/components/ui/button";
+import { Loader2Icon } from "lucide-react";
 import Image from "next/image";
 
 export default function Home() {
@@ -24,7 +26,10 @@ export default function Home() {
             Save and see your changes instantly.
           </li>
         </ol>
-
+        <Button size="sm" disabled className="bg-red-500">
+          <Loader2Icon className="animate-spin"/>
+          Please wait
+        </Button>
         <div className="flex gap-4 items-center flex-col sm:flex-row">
           <a
             className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"

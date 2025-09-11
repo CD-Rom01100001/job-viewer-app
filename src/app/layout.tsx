@@ -3,6 +3,7 @@ import {Inter} from 'next/font/google'// шрифты
 import { ThemeProvider } from 'next-themes'// переключение между светлой и тёмной темами
 import Link from 'next/link'
 import ThemeToggle from '@/components/theme-toggle'
+import Nav from '@/components/nav'
 
 const fontInter = Inter({subsets: ['latin', 'cyrillic']})// подключаем шрифт Inter из Google Fonts с поддержкой латиницы и кириллицы
 
@@ -24,10 +25,7 @@ const RootLayout = ({children}: ChildrenType) => {
             <header className="border-b">
               <div className="container mx-auto flex items-center justify-between py-3">
                 <Link href="/" className='font-semibold'>HH Viewer</Link>
-                <nav className='space-x-4'>
-                  <Link href='dashboard' className='hover:underline'>Панель управления</Link>
-                  <Link href='vacancies' className='hover:underline'>Вакансии</Link>
-                </nav>
+                <Nav/>
                 <ThemeToggle/>
               </div>
             </header>

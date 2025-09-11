@@ -2,6 +2,7 @@ import './globals.css'
 import {Inter} from 'next/font/google'// шрифты
 import { ThemeProvider } from 'next-themes'// переключение между светлой и тёмной темами
 import Link from 'next/link'
+import ThemeToggle from '@/components/theme-toggle'
 
 const fontInter = Inter({subsets: ['latin', 'cyrillic']})// подключаем шрифт Inter из Google Fonts с поддержкой латиницы и кириллицы
 
@@ -27,6 +28,7 @@ const RootLayout = ({children}: ChildrenType) => {
                   <Link href='dashboard' className='hover:underline'>Панель управления</Link>
                   <Link href='vacancies' className='hover:underline'>Вакансии</Link>
                 </nav>
+                <ThemeToggle/>
               </div>
             </header>
             <main className='container mx-auto flex-1 py-6'>{children}</main>

@@ -20,7 +20,7 @@ type ChildrenType = {
 const RootLayout = ({children}: ChildrenType) => {
 
   return (
-    <html lang='ru' suppressContentEditableWarning>
+    <html lang='ru' suppressHydrationWarning>
       <body className={fontInter.className}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <div className="min-h-dvh flex flex-col">
@@ -31,7 +31,9 @@ const RootLayout = ({children}: ChildrenType) => {
                 <ThemeToggle/>
               </div>
             </header>
-            <main className='container mx-auto flex-1 py-6'>{children}</main>
+            <main className='container mx-auto flex-1 py-6'>
+              {children}
+            </main>
             <Footer/>
           </div>
         </ThemeProvider>

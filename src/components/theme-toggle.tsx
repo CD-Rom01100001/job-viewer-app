@@ -21,7 +21,7 @@ const ThemeToggle = () => {
     <Switch
       checked={theme === 'dark'}
       onCheckedChange={(checked) => setTheme(checked ? 'dark' : 'light')}
-      className="hover:ring-offset-2"
+      className="hover:ring-offset-2 cursor-pointer"
     />
   )
 }

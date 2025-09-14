@@ -5,6 +5,7 @@ import Link from 'next/link'
 import ThemeToggle from '@/components/theme-toggle'
 import Nav from '@/components/nav'
 import Footer from '@/components/Footer'
+import AppProviders from './provider'
 
 const fontInter = Inter({subsets: ['latin', 'cyrillic']})// подключаем шрифт Inter из Google Fonts с поддержкой латиницы и кириллицы
 
@@ -13,7 +14,7 @@ export const metadata = {
   description: 'Визуализация вакансий hh.ru',
 }
 
-type ChildrenType = {
+export type ChildrenType = {
   children: React.ReactNode
 }
 
@@ -24,17 +25,19 @@ const RootLayout = ({children}: ChildrenType) => {
       <body className={fontInter.className}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <div className="min-h-dvh flex flex-col">
-            <header className="border-b">
-              <div className="container mx-auto flex items-center justify-between py-3">
-                <Link href="/" className='font-semibold'>HH Viewer</Link>
-                <Nav/>
-                <ThemeToggle/>
-              </div>
-            </header>
-            <main className='container mx-auto flex-1 py-6'>
-              {children}
-            </main>
-            <Footer/>
+            <AppProviders>
+              <header className="border-b">
+                <div className="container mx-auto flex items-center justify-between py-3">
+                  <Link href="/" className='font-semibold'>HH Viewer</Link>
+                  <Nav/>
+                  <ThemeToggle/>
+                </div>
+              </header>
+              <main className='container mx-auto flex-1 py-6'>
+                {children}
+              </main>
+              <Footer/>
+            </AppProviders>
           </div>
         </ThemeProvider>
       </body>
